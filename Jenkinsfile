@@ -36,7 +36,7 @@ pipeline {
                     pytest
                 '''
                 sh "whoami"
-                echo "PORT is ${PORT}"
+                echo "PORT is ${env.GIT_COMMIT}"
             }
             
         }}} //need to remove after this lab
