@@ -25,7 +25,10 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh "pytest"
+               sh '''
+                    . venv/bin/activate
+                    pytest
+                '''
                 sh "whoami"
             }
         }}} //need to remove after this lab
