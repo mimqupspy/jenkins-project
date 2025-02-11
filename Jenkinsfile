@@ -14,6 +14,10 @@ pipeline {
     //         }
     //     }
         stage('Setup') {
+            environment{
+                HOST_NAME="mim"
+                PORT=5555
+            }
             steps {
                 // sh "pip install -r requirements.txt"
                 //install pip last build pip was not found.
@@ -21,6 +25,7 @@ pipeline {
                     python3 -m venv venv
                     bash -c "source venv/bin/activate && pip install -r requirements.txt"
                 '''
+                echo "PORT is ${PORT}"
             }
         }
         stage('Test') {
@@ -30,6 +35,7 @@ pipeline {
                     pytest
                 '''
                 sh "whoami"
+                echo "PORT is ${PORT}"
             }
         }}} //need to remove after this lab
 //         stage('Login to docker hub') {
