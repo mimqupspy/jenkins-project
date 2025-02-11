@@ -5,7 +5,7 @@ pipeline {
     //     IMAGE_TAG = "${IMAGE_NAME}:${env.BUILD_NUMBER}"
     //     KUBECONFIG = credentials('kubeconfig-credentials-id')
     // }
-    // stages {
+    stages {
 
     //     stage('Checkout') {
     //         steps {
