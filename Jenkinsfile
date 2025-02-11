@@ -4,7 +4,6 @@ pipeline {
     //     IMAGE_NAME = 'sanjeevkt720/jenkins-flask-app'
     //     IMAGE_TAG = "${IMAGE_NAME}:${env.BUILD_NUMBER}"
     //     KUBECONFIG = credentials('kubeconfig-credentials-id')
-
     // }
     stages {
 
@@ -17,6 +16,7 @@ pipeline {
         stage('Setup') {
             steps {
                 sh "pip install -r requirements.txt"
+                //install pip last build pip was not found.
             }
         }
         stage('Test') {
