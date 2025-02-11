@@ -25,8 +25,9 @@ pipeline {
                     python3 -m venv venv
                     bash -c "source venv/bin/activate && pip install -r requirements.txt"
                 '''
+                echo "PORT is ${PORT}"
                 }
-            echo "PORT is ${PORT}"
+            
         }
         stage('Test') {
             steps {
@@ -35,9 +36,9 @@ pipeline {
                     pytest
                 '''
                 sh "whoami"
-                
+                echo "PORT is ${PORT}"
             }
-            echo "PORT is ${PORT}"
+            
         }}} //need to remove after this lab
 //         stage('Login to docker hub') {
 //             steps {
