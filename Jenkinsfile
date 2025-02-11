@@ -15,8 +15,13 @@ pipeline {
         }
         stage('Setup') {
             steps {
-                sh "pip install -r requirements.txt"
+                // sh "pip install -r requirements.txt"
                 //install pip last build pip was not found.
+                sh '''
+                    python3 -m venv venv
+                    source venv/bin/activate
+                    pip install -r requirements.txt
+                '''
             }
         }
         stage('Test') {
