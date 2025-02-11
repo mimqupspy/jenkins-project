@@ -5,14 +5,14 @@ pipeline {
     //     IMAGE_TAG = "${IMAGE_NAME}:${env.BUILD_NUMBER}"
     //     KUBECONFIG = credentials('kubeconfig-credentials-id')
     // }
-    stages {
+    // stages {
 
-        stage('Checkout') {
-            steps {
-                git url: 'https://github.com/kodekloudhub/jenkins-project.git', branch: 'main'
-                sh "ls -ltr"
-            }
-        }
+    //     stage('Checkout') {
+    //         steps {
+    //             git url: 'https://github.com/kodekloudhub/jenkins-project.git', branch: 'main'
+    //             sh "ls -ltr"
+    //         }
+    //     }
         stage('Setup') {
             steps {
                 // sh "pip install -r requirements.txt"
