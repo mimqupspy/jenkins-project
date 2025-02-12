@@ -19,7 +19,7 @@ pipeline {
             //     PORT=5555
             // }
             steps {
-                withCredentials([usernamePassword(credentialsId: "e0944a0d-09af-4b2f-812e-06b7f377bdac",usernameVaribale: "myUser",passwordVariable: 
+                withCredentials([usernamePassword(credentialsId: "e0944a0d-09af-4b2f-812e-06b7f377bdac",usernameVariable: "myUser",passwordVariable: 
                 "mypass")])
                 // sh "pip install -r requirements.txt"
                 //install pip last build pip was not found.
