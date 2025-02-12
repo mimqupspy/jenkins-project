@@ -23,21 +23,17 @@ pipeline {
                 "mypass")])
                 // sh "pip install -r requirements.txt"
                 //install pip last build pip was not found.
+
                 {
                     sh '''
-                        // echo "PORT is ${PORT}"
-                        // echo "cred is ${cred}"
                         echo "user is ${myUser}"
                         echo "pass is ${mypass}"
                     '''
                 }
-                {sh '''
-                        python3 -m venv venv
-                        bash -c "source venv/bin/activate && pip install -r requirements.txt"
-                        echo "pass is ${mypass}"
-                '''
-                }
-        }
+                sh python3 -m venv venv      
+                sh bash -c "source venv/bin/activate && pip install -r requirements.txt"
+                sh echo "pass is ${mypass}"
+        }}
         stage('Test') {
             steps {
                sh '''
