@@ -14,7 +14,7 @@ pipeline {
     //         }
     //     }
 
-        stage{
+        stage('line and format'){
             parallel{
                 stage('linting'){
                     steps {
