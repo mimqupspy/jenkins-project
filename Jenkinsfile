@@ -18,22 +18,24 @@ pipeline {
             //     HOST_NAME="mim"
             //     PORT=5555
             // }
-            environment{
-                cred = credentials("e0944a0d-09af-4b2f-812e-06b7f377bdac")
-                //fix pyenv
-            }
             steps {
+                withCredentials([usernamePassword(credentialsId: "e0944a0d-09af-4b2f-812e-06b7f377bdac",usernameVaribale: "myUser",passwordVariable: 
+                "mypass")])
                 // sh "pip install -r requirements.txt"
                 //install pip last build pip was not found.
-                sh '''
-                    python3 -m venv venv
-                    bash -c "source venv/bin/activate && pip install -r requirements.txt"
-                '''
-                // echo "PORT is ${PORT}"
-                echo "cred is ${cred}"
-                echo "user is ${cred_USR}"
-                echo "pass is ${cred_PSW}"
+                {
+                    sh '''
+                        // echo "PORT is ${PORT}"
+                        // echo "cred is ${cred}"
+                        echo "user is ${myUser}"
+                        echo "pass is ${mypass}"
+                    '''
                 }
+                sh '''
+                        python3 -m venv venv
+                        bash -c "source venv/bin/activate && pip install -r requirements.txt"
+                        echo "pass is ${mypass}"
+                '''
             
         }
         stage('Test') {
