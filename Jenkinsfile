@@ -11,20 +11,20 @@ pipeline {
     // }
     stages {
 
-    //     stage('Checkout') {
-    //         steps {
-    //             git url: 'https://github.com/kodekloudhub/jenkins-project.git', branch: 'main'
-    //             sh "ls -ltr"
-    //         }
-    //     }
+        // stage('Checkout') {
+        //     steps {
+        //         git url: 'https://github.com/kodekloudhub/jenkins-project.git', branch: 'main'
+        //         sh "ls -ltr"
+        //     }
+        // }
 
-        stage('line and format'){
-                stage('formating'){
-                    steps {
-                        sh "sleep 30"
-                    }
-                }
+          stage('sleep') {
+            steps {
+                sh "sleep 30"
             }
+        }
+
+
         stage('Setup') {
             // environment{
             //     HOST_NAME="mim"
