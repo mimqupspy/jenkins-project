@@ -19,20 +19,12 @@ pipeline {
     //     }
 
         stage('line and format'){
-            // parallel{
-            //     stage('linting'){
-            //         steps {
-            //             sh "sleep 30"
-            //         }
-            //     }
                 stage('formating'){
                     steps {
                         sh "sleep 30"
                     }
                 }
             }
-
-        }
         stage('Setup') {
             // environment{
             //     HOST_NAME="mim"
