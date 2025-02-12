@@ -20,7 +20,7 @@ pipeline {
             // }
             environment{
                 cred = credentials("e0944a0d-09af-4b2f-812e-06b7f377bdac")
-                //rerun
+                //fix pyenv
             }
             steps {
                 // sh "pip install -r requirements.txt"
