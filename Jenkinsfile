@@ -4,6 +4,10 @@ pipeline {
     //     IMAGE_NAME = 'sanjeevkt720/jenkins-flask-app'
     //     IMAGE_TAG = "${IMAGE_NAME}:${env.BUILD_NUMBER}"
     //     KUBECONFIG = credentials('kubeconfig-credentials-id')
+     options {
+        // Timeout counter starts AFTER agent is allocated
+        timeout(time: 20, unit: 'SECONDS')
+    }
     // }
     stages {
 
@@ -15,18 +19,19 @@ pipeline {
     //     }
 
         stage('line and format'){
-            parallel{
-                stage('linting'){
-                    steps {
-                        sh "sleep 30"
-                    }
-                }
+            // parallel{
+            //     stage('linting'){
+            //         steps {
+            //             sh "sleep 30"
+            //         }
+            //     }
                 stage('formating'){
                     steps {
                         sh "sleep 30"
                     }
                 }
             }
+
         }
         stage('Setup') {
             // environment{
