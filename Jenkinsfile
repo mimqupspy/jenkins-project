@@ -30,9 +30,9 @@ pipeline {
                         echo "pass is ${mypass}"
                     '''
                 }
-                sh python3 -m venv venv      
-                sh bash -c "source venv/bin/activate && pip install -r requirements.txt"
-                sh echo "pass is ${mypass}"
+                sh "python3 -m venv venv"      
+                sh "bash -c 'source venv/bin/activate && pip install -r requirements.txt'"
+                sh "echo "pass is ${mypass}"
         }}
         stage('Test') {
             steps {
