@@ -14,9 +14,12 @@ pipeline {
     //         }
     //     }
         stage('Setup') {
+            // environment{
+            //     HOST_NAME="mim"
+            //     PORT=5555
+            // }
             environment{
-                HOST_NAME="mim"
-                PORT=5555
+                cred = credentials("e0944a0d-09af-4b2f-812e-06b7f377bdac")
             }
             steps {
                 // sh "pip install -r requirements.txt"
@@ -25,7 +28,10 @@ pipeline {
                     python3 -m venv venv
                     bash -c "source venv/bin/activate && pip install -r requirements.txt"
                 '''
-                echo "PORT is ${PORT}"
+                // echo "PORT is ${PORT}"
+                echo "cred is ${cred}"
+                echo "user is ${cred_USR}"
+                echo "pass is ${cred_PSW}"
                 }
             
         }
@@ -36,7 +42,7 @@ pipeline {
                     pytest
                 '''
                 sh "whoami"
-                echo "PORT is ${env.GIT_COMMIT}"
+                // echo "PORT is ${env.GIT_COMMIT}"
             }
             
         }}} //need to remove after this lab
